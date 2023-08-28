@@ -32,9 +32,17 @@ model PasswordReset {
   createdAt DateTime @default(now())
 }
 
+model Flow {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  Steps     Step[]
+}
+
 model Step {
   id        Int      @id @default(autoincrement())
   title     String
   content   String
   createdAt DateTime @default(now())
+  Flow      Flow     @relation(fields: [flowId], references: [id])
+  flowId    Int
 }

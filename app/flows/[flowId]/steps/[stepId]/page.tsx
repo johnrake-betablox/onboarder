@@ -9,11 +9,18 @@ async function fetchStep(id: string) {
     where: {
       id: Number(id),
     },
+    include: {
+      Flow: true,
+    },
   });
 }
 
-export default async function StepPage({ params }: { params: { id: string } }) {
-  const step = await fetchStep(params.id);
+export default async function StepPage({
+  params,
+}: {
+  params: { flowId: string; stepId: string };
+}) {
+  const step = await fetchStep(params.stepId);
   return (
     <>
       <Steps />
