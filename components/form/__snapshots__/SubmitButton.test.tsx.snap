@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders a snapshot 1`] = `
+<DocumentFragment>
+  <button
+    class="bg-green-600 text-white hover:bg-green-500 rounded  px-3 py-2 font-semibold"
+    type="submit"
+  >
+    Save
+  </button>
+</DocumentFragment>
+`;
+
+exports[`renders with optional text 1`] = `
+<DocumentFragment>
+  <button
+    class="bg-green-600 text-white hover:bg-green-500 rounded  px-3 py-2 font-semibold"
+    type="submit"
+  >
+    Create Account
+  </button>
+</DocumentFragment>
+`;

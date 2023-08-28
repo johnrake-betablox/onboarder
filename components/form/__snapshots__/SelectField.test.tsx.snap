@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders a required field 1`] = `
+<DocumentFragment>
+  <select
+    class="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-green-600 focus:outline-none focus:ring-green-600 sm:text-sm"
+    id="state"
+    name="state"
+    required=""
+  >
+    <option
+      value=""
+    />
+    <option
+      value="KS"
+    >
+      Kansas
+    </option>
+    <option
+      value="CA"
+    >
+      California
+    </option>
+    <option
+      value="TX"
+    >
+      Texas
+    </option>
+  </select>
+</DocumentFragment>
+`;
+
+exports[`renders a snapshot 1`] = `
+<DocumentFragment>
+  <select
+    class="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-green-600 focus:outline-none focus:ring-green-600 sm:text-sm"
+    id="state"
+    name="state"
+  >
+    <option
+      value=""
+    />
+    <option
+      value="KS"
+    >
+      Kansas
+    </option>
+    <option
+      value="CA"
+    >
+      California
+    </option>
+    <option
+      value="TX"
+    >
+      Texas
+    </option>
+  </select>
+</DocumentFragment>
+`;

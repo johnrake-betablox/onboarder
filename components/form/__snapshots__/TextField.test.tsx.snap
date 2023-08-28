@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders a required field 1`] = `
+<DocumentFragment>
+  <input
+    class="mt-1 block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-green-600 focus:outline-none focus:ring-green-600 sm:text-sm"
+    id="firstName"
+    name="firstName"
+    required=""
+    type="text"
+    value="John"
+  />
+</DocumentFragment>
+`;
+
+exports[`renders a snapshot 1`] = `
+<DocumentFragment>
+  <input
+    class="mt-1 block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-green-600 focus:outline-none focus:ring-green-600 sm:text-sm"
+    id="firstName"
+    name="firstName"
+    type="text"
+    value="John"
+  />
+</DocumentFragment>
+`;
+
+exports[`renders with a specific type 1`] = `
+<DocumentFragment>
+  <input
+    class="mt-1 block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-green-600 focus:outline-none focus:ring-green-600 sm:text-sm"
+    id="password"
+    name="password"
+    type="password"
+    value="secret"
+  />
+</DocumentFragment>
+`;
+
+exports[`renders with an autocomplete 1`] = `
+<DocumentFragment>
+  <input
+    autocomplete="email"
+    class="mt-1 block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-green-600 focus:outline-none focus:ring-green-600 sm:text-sm"
+    id="email"
+    name="email"
+    type="email"
+    value="john@betablox.com"
+  />
+</DocumentFragment>
+`;

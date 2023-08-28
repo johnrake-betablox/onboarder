@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders a snapshot 1`] = `
+<DocumentFragment>
+  <label
+    class="block text-xs font-bold uppercase text-gray-600"
+    for="email"
+  >
+    Email Address 
+  </label>
+</DocumentFragment>
+`;
