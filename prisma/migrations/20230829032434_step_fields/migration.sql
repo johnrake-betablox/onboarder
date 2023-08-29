@@ -1,0 +1,4 @@
+-- AlterTable
+ALTER TABLE "Step" ADD COLUMN     "form" JSONB DEFAULT '[]',
+ALTER COLUMN "content" DROP NOT NULL,
+ALTER COLUMN "content" SET DEFAULT '';

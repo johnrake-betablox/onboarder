@@ -1,0 +1,3 @@
+-- AlterTable
+ALTER TABLE "Step" ALTER COLUMN "content" DROP DEFAULT,
+ALTER COLUMN "form" DROP DEFAULT;

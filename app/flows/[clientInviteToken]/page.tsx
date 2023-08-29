@@ -3,18 +3,26 @@ import prisma from "@/lib/prisma";
 import { ArrowRightIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 
-async function fetchFlow() {
+async function fetchFlow(clientInviteToken: string) {
+  const clientInvite = await prisma.clientInvite.findFirstOrThrow({
+    where: { token: clientInviteToken },
+  });
   return await prisma.flow.findFirstOrThrow({
+    where: {
+      id: clientInvite.flowId,
+    },
     include: {
       Steps: true,
     },
   });
 }
 
-export default async function FlowPage() {
-  const flow = await fetchFlow();
-
-  console.log(flow);
+export default async function FlowPage({
+  params,
+}: {
+  params: { clientInviteToken: string };
+}) {
+  const flow = await fetchFlow(params.clientInviteToken);
 
   return (
     <>
@@ -24,7 +32,7 @@ export default async function FlowPage() {
         <div className="flex flex-row items-center justify-between">
           <div></div>
           <Link
-            href={`/flows/${flow.id}/steps/${flow.Steps[0].id}`}
+            href={`/flows/${params.clientInviteToken}/steps/${flow.Steps[0].id}`}
             className="button-primary"
           >
             Next
