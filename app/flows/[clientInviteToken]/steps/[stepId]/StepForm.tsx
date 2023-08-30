@@ -1,5 +1,6 @@
 "use client";
 
+import LoadingDots from "@/components/LoadingDots";
 import { getStepForm } from "@/lib/flow-step";
 import { captilalize } from "@/utils/capitalize";
 import { ArrowLeftIcon, ArrowRightIcon } from "@heroicons/react/24/outline";
@@ -7,7 +8,7 @@ import { Flow, Step, StepAnswer } from "@prisma/client";
 import axios from "axios";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { FormEvent, useRef } from "react";
+import { FormEvent, useRef, useState } from "react";
 
 export default function StepForm({
   clientInviteToken,
@@ -20,15 +21,16 @@ export default function StepForm({
   clientInviteToken: string;
   flow: Flow;
   step: Step;
-  prevStep?: Step;
-  nextStep?: Step;
-  stepAnswer?: StepAnswer;
+  prevStep: Step | null;
+  nextStep: Step | null;
+  stepAnswer: StepAnswer | null;
 }) {
   const router = useRouter();
   const formRef = useRef(null);
-  const form = getStepForm(step);
+  const [saving, setSaving] = useState(false);
 
   const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    setSaving(true);
     e.preventDefault();
 
     const formData = new FormData(e.currentTarget);
@@ -59,6 +61,7 @@ export default function StepForm({
     return (stepAnswer.data || {})[name];
   };
 
+  const form = getStepForm(step);
   const fields = (form && form.fields) || [];
 
   return (
@@ -68,7 +71,7 @@ export default function StepForm({
           return (
             <div key={field.name}>
               <label className="block text-sm font-medium leading-6 text-gray-900">
-                {captilalize(field.name)}
+                Write Here:
               </label>
               <div className="mt-2">
                 {field.type === "text" && (
@@ -107,7 +110,7 @@ export default function StepForm({
           )}
           {nextStep ? (
             <button type="submit" className="button button-primary">
-              Next
+              {saving ? <LoadingDots color="white" /> : "Next"}
               <ArrowRightIcon className="h-4 w-4 text-white" />
             </button>
           ) : (

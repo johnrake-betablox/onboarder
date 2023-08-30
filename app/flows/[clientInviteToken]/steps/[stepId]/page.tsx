@@ -1,8 +1,9 @@
-import Steps from "@/components/Steps";
+import StepCategoryProgress from "@/components/StepCategoryProgress";
 import prisma from "@/lib/prisma";
 import { Step, StepAnswer } from "@prisma/client";
 import ReactMarkdown from "react-markdown";
 import StepForm from "./StepForm";
+import { getFlowCategoryProgress } from "@/lib/flow";
 
 async function fetchFlow(clientInviteToken: string) {
   const clientInvite = await prisma.clientInvite.findFirstOrThrow({
@@ -57,9 +58,11 @@ export default async function StepPage({
     params.clientInviteToken,
   );
 
+  const progress = await getFlowCategoryProgress(flow, currentStep);
+
   return (
     <>
-      <Steps />
+      <StepCategoryProgress items={progress} />
       <div className="mx-auto mt-20 max-w-3xl">
         <h1 className="mb-4 text-3xl font-extrabold">{currentStep.title}</h1>
         <div className="prose mb-10 max-w-none">

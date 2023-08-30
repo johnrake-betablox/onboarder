@@ -80,6 +80,7 @@ model Flow {
 model Step {
   id         Int          @id @default(autoincrement())
   title      String
+  category   String
   content    String?
   form       Json?
   createdAt  DateTime     @default(now())
